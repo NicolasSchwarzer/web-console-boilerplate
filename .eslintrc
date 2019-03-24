@@ -1,0 +1,25 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    }
+  },
+  "plugins": ["markdown"],
+  "rules": {
+    "object-curly-newline": "off",
+    "no-use-before-define": [
+      "error",
+      { "functions": false, "classes": true, "variables": false }
+    ],
+    "operator-linebreak": [
+      "error",
+      "after",
+      { "overrides": { "?": "before", ":": "before" } }
+    ],
+    "no-console": ["error", { "allow": ["info", "warn", "error"] }],
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".md"] } ]
+  }
+}
