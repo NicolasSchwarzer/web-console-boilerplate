@@ -7,7 +7,10 @@
     "build": "rimraf build && webpack --config config/webpack.config.prod.js",
     "lint": "npm run lint:es && npm run lint:md",
     "lint:es": "eslint . --ext .js,.jsx",
-    "lint:md": "eslint . --ext .md"
+    "lint:md": "eslint . --ext .md",
+    "lint-fix": "npm run lint-fix:es && npm run lint-fix:md",
+    "lint-fix:es": "eslint . --ext .js,.jsx --fix",
+    "lint-fix:md": "eslint . --ext .md --fix"
   },
   "repository": {
     "type": "git",
@@ -46,10 +49,12 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "npm run lint:es"
+      "npm run lint-fix:es",
+      "git add"
     ],
     "*.md": [
-      "npm run lint:md"
+      "npm run lint-fix:md",
+      "git add"
     ]
   }
 }
