@@ -1,7 +1,7 @@
 {
-  "name": "web-console-template",
+  "name": "web-console-boilerplate",
   "private": true,
-  "description": "A template of web console project which saves your time on project initialization.",
+  "description": "A boilerplate of web console project which saves your time on project initialization.",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.config.dev.js",
     "build": "rimraf build && webpack --config config/webpack.config.prod.js",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NicolasSchwarzer/web-console-template.git"
+    "url": "git+https://github.com/NicolasSchwarzer/web-console-boilerplate.git"
   },
   "author": "Nicolas Wan <nbwansjtu@gmail.com> (https://github.com/NicolasSchwarzer)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NicolasSchwarzer/web-console-template/issues"
+    "url": "https://github.com/NicolasSchwarzer/web-console-boilerplate/issues"
   },
-  "homepage": "https://github.com/NicolasSchwarzer/web-console-template#readme",
+  "homepage": "https://github.com/NicolasSchwarzer/web-console-boilerplate#readme",
   "dependencies": {
     "antd": "^3.15.2",
     "babel-polyfill": "^6.26.0",

@@ -1,3 +1,3 @@
-# web-console-template
+# web-console-boilerplate
 
-A template of web console project which saves your time on project initialization.
+A boilerplate of web console project which saves your time on project initialization.
