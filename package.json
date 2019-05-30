@@ -5,12 +5,14 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.config.dev.js",
     "build": "rimraf build && webpack --config config/webpack.config.prod.js",
-    "lint": "npm run lint:es && npm run lint:md",
+    "lint": "npm run lint:es && npm run lint:md && npm run lint:style",
     "lint:es": "eslint . --ext .js,.jsx",
     "lint:md": "eslint . --ext .md",
-    "lint-fix": "npm run lint-fix:es && npm run lint-fix:md",
+    "lint:style": "stylelint 'src/**/*.scss' --syntax scss",
+    "lint-fix": "npm run lint-fix:es && npm run lint-fix:md && npm run lint-fix:style",
     "lint-fix:es": "eslint . --ext .js,.jsx --fix",
-    "lint-fix:md": "eslint . --ext .md --fix"
+    "lint-fix:md": "eslint . --ext .md --fix",
+    "lint-fix:style": "stylelint 'src/**/*.scss' --syntax scss --fix"
   },
   "repository": {
     "type": "git",
@@ -40,6 +42,11 @@
     "husky": "^2.3.0",
     "lint-staged": "^8.1.7",
     "rimraf": "^2.6.3",
+    "stylelint": "^10.0.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
+    "stylelint-order": "^3.0.0",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
@@ -57,6 +64,10 @@
     ],
     "*.md": [
       "npm run lint-fix:md",
+      "git add"
+    ],
+    "*.scss": [
+      "npm run lint-fix:style",
       "git add"
     ]
   }
