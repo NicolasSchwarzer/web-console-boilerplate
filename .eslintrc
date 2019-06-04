@@ -21,5 +21,9 @@
     "no-console": ["error", { "allow": ["info", "warn", "error"] }],
     "import/prefer-default-export": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".md"] } ]
+  },
+  "globals": {
+    "window": "readonly",
+    "document": "readonly"
   }
 }

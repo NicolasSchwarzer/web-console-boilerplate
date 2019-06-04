@@ -1,4 +1,5 @@
 const { join } = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -35,6 +36,14 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/,
+        include: /node_modules/, // Extract vendors' css chunk
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ],
+      },
     ],
   },
   resolve: {
@@ -59,9 +68,16 @@ module.exports = {
     usedExports: true,
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      chunkFilename: 'public/[id].[contenthash].css', // Non-entry chunk file name
+      filename: 'public/[id].[contenthash].css', // Entry chunk file name
+    }),
     new HtmlWebpackPlugin({
       chunks: ['runtime', 'vendors', 'app'], // inject runtime, vendors & app chunk
       template: join(__dirname, '../public/index.html'),
     }),
   ],
+  performance: {
+    hints: false, // Do not warn or report errors when any chunk's size exceeds 250kb
+  },
 };
