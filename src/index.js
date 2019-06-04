@@ -1,1 +1,1 @@
-console.info('init');
+console.info(process.env.NODE_ENV);
