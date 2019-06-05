@@ -27,7 +27,11 @@ module.exports = {
               '@babel/preset-react',
             ],
             plugins: [
-              // Decorator must comes before class-properties, and legacy must comes with loose
+              // Ant design supports tree shaking, but it needs additional import of css,
+              // so we use import plugin to achieve import on demand & auto css import:
+              // https://ant.design/docs/react/introduce#Use-modularized-antd
+              ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
+              // Decorator must comes before class-properties, and legacy must comes with loose:
               // https://babeljs.io/docs/en/babel-plugin-proposal-decorators#note-compatibility-with-babel-plugin-proposal-class-properties
               ['@babel/plugin-proposal-decorators', { legacy: true }],
               ['@babel/plugin-proposal-class-properties', { loose: true }],
@@ -35,6 +39,23 @@ module.exports = {
             ],
           },
         },
+      },
+      {
+        test: /\.scss$/, // Use scss to write styles
+        exclude: /node_modules/, // Extract app's css chunk
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true, // Enable css modules
+              localIdentName: '[local]-[hash:base64:5]', // Local unique name for, e.g. class
+              importLoaders: 2, // Transformed by 2 loaders (sass & postcss) before @import
+            },
+          },
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.css$/,
@@ -49,7 +70,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
   },
-  // Optimization for persistent cache
+  // Optimization for persistent cache:
   // https://webpack.js.org/guides/caching
   optimization: {
     namedChunks: true, // Persist chunk ids with the chunk name

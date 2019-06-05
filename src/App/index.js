@@ -1,12 +1,12 @@
 import React from 'react';
 import { Typography } from 'antd';
-import 'antd/es/typography/style/css'; // TODO: load css & tree shaking
+import styles from './index.scss';
 
 const { Title, Paragraph, Text } = Typography;
 
 export default function App() {
   return (
-    <Typography>
+    <Typography className={styles.container}>
       <Title>Introduction</Title>
       <Paragraph>
         <Text mark>Web console boilerplate</Text>
