@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: ['@babel/polyfill', join(__dirname, '../src/index.js')],
+    app: ['@babel/polyfill', join(__dirname, '../src/index.jsx')],
   },
   output: {
     chunkFilename: 'public/[id].[chunkhash].js', // Non-entry chunk file name.
@@ -69,6 +69,9 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      '@': join(__dirname, '../src'), // Alias corresponding to paths in jsconfig.json.
+    },
     extensions: ['.js', '.jsx', '.json'],
   },
   // Optimization for persistent cache:
