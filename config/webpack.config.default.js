@@ -22,6 +22,7 @@ module.exports = {
           options: {
             babelrc: false, // Do not search relative configuration files.
             configFile: false, // Do not use project-wide configuration file.
+            cacheDirectory: true, // Cache loader results in 'node_modules/.cache/babel-loader'.
             presets: [
               '@babel/preset-env',
               '@babel/preset-react',
