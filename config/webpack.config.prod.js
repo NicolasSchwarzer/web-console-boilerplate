@@ -6,15 +6,15 @@ const merge = require('webpack-merge');
 const config = require('./webpack.config.default');
 
 module.exports = merge(config, {
-  mode: 'production', // Tree shaking enabled
+  mode: 'production', // Tree shaking enabled.
   optimization: {
     minimizer: [
-      new TerserWebpackPlugin(), // Should specify js minimizer when overrides
-      new OptimizeCssAssetsWebpackPlugin(), // Also minimize css chunk size
+      new TerserWebpackPlugin(), // Should specify js minimizer when overrides.
+      new OptimizeCssAssetsWebpackPlugin(), // Also minimize css chunk size.
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(), // Clean build folder(s) before output
-    new HashedModuleIdsPlugin(), // Persist module ids with the hash of module path
+    new CleanWebpackPlugin(), // Clean build folder(s) before output.
+    new HashedModuleIdsPlugin(), // Persist module ids with the hash of module path.
   ],
 });
