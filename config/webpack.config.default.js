@@ -7,6 +7,7 @@ module.exports = {
     app: ['@babel/polyfill', join(__dirname, '../src/index.jsx')],
   },
   output: {
+    // Use [chunkhash] to persist chunk (js entry file) hash.
     chunkFilename: 'public/[id].[chunkhash].js', // Non-entry chunk file name.
     filename: 'public/[id].[chunkhash].js', // Entry chunk file name.
     path: join(__dirname, '../build'),
@@ -94,6 +95,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
+      // Use [contenthash] to persist css chunk (entry file) hash.
       chunkFilename: 'public/[id].[contenthash].css', // Non-entry chunk file name.
       filename: 'public/[id].[contenthash].css', // Entry chunk file name.
     }),
