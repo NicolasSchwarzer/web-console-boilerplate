@@ -2,7 +2,7 @@ const { join } = require('path');
 const merge = require('webpack-merge');
 const config = require('./webpack.config.default');
 
-module.exports = merge(config, {
+const devConfig = merge(config, {
   mode: 'development',
   devServer: {
     compress: true, // Enable gzip compress.
@@ -17,3 +17,8 @@ module.exports = merge(config, {
   },
   devtool: 'source-map',
 });
+
+// Print detail filename and line number in the component stack trace for error boundary.
+devConfig.module.rules[0].use.options.plugins.push('@babel/plugin-transform-react-jsx-source');
+
+module.exports = devConfig;
