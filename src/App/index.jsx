@@ -1,7 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import Panel from '@/layouts/Panel';
-import Spinner from '@/components/Spinner';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import ImportSpin from '@/components/ImportSpin';
 import NotFound from '@/pages/NotFound';
 import './index.scss';
 
@@ -20,15 +21,17 @@ const Settings = lazy(() => import(/* webpackChunkName: "settings" */ '@/pages/S
 export default function App() {
   return (
     <Panel>
-      <Suspense fallback={<Spinner />}>
-        <Switch>
-          <Redirect exact from="/" to="/dashboard" />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/settings" component={Settings} />
-          <Route component={NotFound} />
-        </Switch>
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<ImportSpin />}>
+          <Switch>
+            <Redirect exact from="/" to="/dashboard" />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/settings" component={Settings} />
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
+      </ErrorBoundary>
     </Panel>
   );
 }
