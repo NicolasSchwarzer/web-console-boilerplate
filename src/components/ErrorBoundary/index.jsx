@@ -4,6 +4,7 @@
  */
 
 import React, { PureComponent } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import styles from './index.scss';
 
@@ -18,26 +19,78 @@ export default class ErrorBoundary extends PureComponent {
 
   state = {
     hasError: false,
+    errorStack: '',
+    componentStack: '',
   };
+
+  // Modal container dom to render error details in development environment.
+  errorContainerEl = document.createElement('div');
 
   static getDerivedStateFromError() {
     // Change state to render fallback UI.
     return { hasError: true };
   }
 
-  // componentDidCatch(error, info) {
-  //   // TODO: use createPortal to render error details in development environment.
-  // }
+  componentDidMount() {
+    // Attach to body on mounted.
+    document.body.appendChild(this.errorContainerEl);
+  }
+
+  componentWillUnmount() {
+    // Detach from body on unmount.
+    document.body.removeChild(this.errorContainerEl);
+  }
+
+  componentDidCatch(error, info) {
+    // Only render error details in development environment.
+    if (process.env.NODE_ENV === 'development') {
+      this.setState({
+        errorStack: error.stack || '',
+        componentStack: info.componentStack || '',
+      });
+    }
+  }
+
+  renderErrorDetails() {
+    const { errorStack, componentStack } = this.state;
+    if (errorStack || componentStack) {
+      return createPortal(
+        <div className={styles.errorContainer}>
+          <span className={styles.errorTitle}>Oops, error occurs!</span>
+          {!!errorStack && (
+            <>
+              <br />
+              <br />
+              {errorStack}
+            </>
+          )}
+          {!!componentStack && (
+            <>
+              <br />
+              <br />
+              <span className={styles.errorTitle}>Component stack:</span>
+              <br />
+              {componentStack}
+            </>
+          )}
+        </div>,
+        this.errorContainerEl,
+      );
+    }
+    return null;
+  }
 
   render() {
     const { children } = this.props;
     const { hasError } = this.state;
     if (hasError) {
-      // TODO: use createPortal to render error prompt in both environments.
       return (
-        <div className={styles.fallback}>
-          Oops, error occurs! Please contact administrator!
-        </div>
+        <>
+          <div className={styles.fallback}>
+            Oops, error occurs! Please contact administrator!
+          </div>
+          {this.renderErrorDetails()}
+        </>
       );
     }
     return children;

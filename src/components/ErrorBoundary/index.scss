@@ -6,3 +6,24 @@
   color: #282c34;
   font-size: 40px;
 }
+
+.errorContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  padding: 32px;
+  overflow: auto;
+  color: #e8e8e8;
+  font-size: 18px;
+  font-family: Menlo, Consolas, monospace;
+  line-height: 21px;
+  white-space: pre-wrap;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.errorTitle {
+  color: #e36049;
+}
