@@ -3,11 +3,11 @@
  * https://reactjs.org/docs/error-boundaries.html
  */
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.scss';
 
-export default class ErrorBoundary extends Component {
+export default class ErrorBoundary extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
   };

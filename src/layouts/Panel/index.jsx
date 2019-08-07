@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Layout, Menu, Icon, Avatar } from 'antd';
@@ -10,7 +10,7 @@ const pathReg = /^\/([\w-]+)(?:\/.*)?$/;
 
 @withRouter
 // TODO: use react hooks & function component.
-export default class Panel extends Component {
+export default class Panel extends PureComponent {
   static propTypes = {
     history: PropTypes.shape({
       push: PropTypes.func.isRequired,
