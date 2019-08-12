@@ -4,7 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: ['@babel/polyfill', join(__dirname, '../src/index.jsx')],
+    app: [
+      // As of babel 7.4.0, @babel/polyfill has been deprecated,
+      // in favor of directly including core-js/stable (to polyfill ECMAScript features),
+      // and regenerator-runtime/runtime (needed to use transpiled generator functions),
+      // for more information: https://babeljs.io/docs/en/next/babel-polyfill.html
+      'core-js/stable',
+      'regenerator-runtime/runtime',
+      join(__dirname, '../src/index.jsx'),
+    ],
   },
   output: {
     // Use [chunkhash] to persist chunk (js entry file) hash.
@@ -50,8 +58,10 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true, // Enable css modules.
-              localIdentName: '[local]-[hash:base64:5]', // Local unique name for, e.g. class.
+              modules: { // Enable css modules.
+                localIdentName: '[local]--[hash:base64:5]', // Local unique name for, e.g. class.
+                context: join(__dirname, '../src'), // Use src directory as basic loader context.
+              },
               importLoaders: 2, // Transformed by 2 loaders (sass & postcss) before @import.
             },
           },
