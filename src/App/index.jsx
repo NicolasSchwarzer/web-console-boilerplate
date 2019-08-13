@@ -36,4 +36,5 @@ function App() {
   );
 }
 
+// Use memo to optimize performance of function components.
 export default memo(App);
