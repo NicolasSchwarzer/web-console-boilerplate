@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './index.scss';
 
-export default function Settings() {
+function Settings() {
   return <div className={styles.container}>Settings Page</div>;
 }
+
+export default memo(Settings);

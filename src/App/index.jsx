@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, memo } from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import Panel from '@/layouts/Panel';
 import ErrorBoundary from '@/components/ErrorBoundary';
@@ -18,7 +18,7 @@ const Dashboard = lazy(() => import(/* webpackChunkName: "dashboard" */ '@/pages
 const Profile = lazy(() => import(/* webpackChunkName: "profile" */ '@/pages/Profile'));
 const Settings = lazy(() => import(/* webpackChunkName: "settings" */ '@/pages/Settings'));
 
-export default function App() {
+function App() {
   return (
     <Panel>
       <ErrorBoundary>
@@ -35,3 +35,5 @@ export default function App() {
     </Panel>
   );
 }
+
+export default memo(App);

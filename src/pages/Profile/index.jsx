@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './index.scss';
 
-export default function Profile() {
+function Profile() {
   return <div className={styles.container}>Profile Page</div>;
 }
+
+export default memo(Profile);

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './index.scss';
 
-export default function Dashboard() {
+function Dashboard() {
   return <div className={styles.container}>Dashboard Page</div>;
 }
+
+export default memo(Dashboard);
