@@ -37,12 +37,14 @@ export default class ErrorBoundary extends PureComponent {
   }
 
   componentDidCatch(error, info) {
-    // Only render error details in development environment.
     if (process.env.NODE_ENV === 'development') {
+      // Only render error details in development environment.
       this.setState({
         errorStack: error.stack || '',
         componentStack: info.componentStack || '',
       });
+    } else {
+      // TODO: log error stack & component stack to error tracking services.
     }
   }
 
