@@ -29,7 +29,7 @@
     "operator-linebreak": [
       "error",
       "after",
-      { "overrides": { "?": "before", ":": "before" } }
+      { "overrides": { "=": "none", "?": "before", ":": "before" } }
     ],
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".md"] }],
     "react/static-property-placement": ["error", "static public field"],
