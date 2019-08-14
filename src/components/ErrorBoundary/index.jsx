@@ -36,11 +36,6 @@ export default class ErrorBoundary extends PureComponent {
     document.body.appendChild(this.errorContainerEl);
   }
 
-  componentWillUnmount() {
-    // Detach from body on unmount.
-    document.body.removeChild(this.errorContainerEl);
-  }
-
   componentDidCatch(error, info) {
     // Only render error details in development environment.
     if (process.env.NODE_ENV === 'development') {
@@ -49,6 +44,11 @@ export default class ErrorBoundary extends PureComponent {
         componentStack: info.componentStack || '',
       });
     }
+  }
+
+  componentWillUnmount() {
+    // Detach from body on unmount.
+    document.body.removeChild(this.errorContainerEl);
   }
 
   renderErrorDetails() {
