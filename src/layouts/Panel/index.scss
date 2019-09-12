@@ -3,19 +3,15 @@
 }
 
 .logo {
+  display: block;
   height: 64px;
   color: #fff;
   font-size: 14px;
   line-height: 64px;
   text-align: center;
-  cursor: pointer;
 
   &.collapsed {
     font-size: 15px;
-  }
-
-  &:hover {
-    color: #1890ff;
   }
 }
 
@@ -42,7 +38,7 @@
   transition: color 0.3s;
 
   &:hover {
-    color: #1890ff;
+    color: #40a9ff;
   }
 }
 
@@ -75,10 +71,15 @@
   width: 96px;
   height: 64px;
   cursor: pointer;
+  transition: background-color 0.3s;
 
   &:hover {
     background-color: #1890ff;
   }
+}
+
+.avatar {
+  background-color: #fff;
 }
 
 .content {

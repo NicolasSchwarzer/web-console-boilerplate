@@ -1,8 +1,9 @@
 import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Layout, Menu, Icon, Avatar } from 'antd';
 import classNames from 'classnames';
+import avatar from '@/assets/git.png';
 import styles from './index.scss';
 
 const { Header, Sider, Content } = Layout;
@@ -15,12 +16,12 @@ function Panel({ history, location, children }) {
   return (
     <Layout className={styles.container}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div
+        <Link
           className={classNames(styles.logo, { [styles.collapsed]: collapsed })}
-          onClick={() => history.push('/')}
+          to="/"
         >
           {collapsed ? 'Boilerplate' : 'Web Console Boilerplate'}
-        </div>
+        </Link>
         <Menu
           className={styles.menu}
           theme="dark"
@@ -50,15 +51,22 @@ function Panel({ history, location, children }) {
             onClick={() => setCollapsed(!collapsed)}
           />
           <div className={styles.headerRightContainer}>
-            <a className={styles.headerMenuItem} href="/" target="_blank">
+            <a
+              className={styles.headerMenuItem}
+              href="https://github.com/NicolasSchwarzer/web-console-boilerplate#readme"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Docs
             </a>
-            <div className={styles.avatarContainer}>
-              <Avatar
-                size={48}
-                src="//www.gravatar.com/avatar/f4afab1530c2cac1268c8f1d4ffe8537?s=200&d=retro"
-              />
-            </div>
+            <a
+              className={styles.avatarContainer}
+              href="https://github.com/NicolasSchwarzer/web-console-boilerplate"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Avatar className={styles.avatar} size={48} src={avatar} />
+            </a>
           </div>
         </Header>
         <Content className={styles.content}>

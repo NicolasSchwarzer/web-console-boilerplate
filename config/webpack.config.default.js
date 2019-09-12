@@ -77,6 +77,18 @@ module.exports = {
           'css-loader',
         ],
       },
+      {
+        // TODO: file-loader & url-loader.
+        test: /\.(png|svg|jpg|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[hash:base64:20].[ext]',
+            context: 'src/assets',
+            outputPath: 'public/assets',
+          },
+        },
+      },
     ],
   },
   resolve: {
