@@ -35,6 +35,7 @@
       { "overrides": { "=": "none", "?": "before", ":": "before" } }
     ],
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".md"] }],
+    "react/state-in-constructor": ["error", "never"],
     "react/static-property-placement": ["error", "static public field"]
   },
   "settings": {
