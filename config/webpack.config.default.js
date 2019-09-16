@@ -78,14 +78,28 @@ module.exports = {
         ],
       },
       {
-        // TODO: file-loader & url-loader.
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(?:bmp|gif|jpe?g|png)$/, // Resolve all image files.
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 8192, // Use default fallback file-loader if file size equals or exceeds limit.
+            // Options for default fallback file-loader,
+            // persists files' relative paths in the output directory,
+            // with 20 length content hash for persistant cache.
+            name: '[path][name].[contenthash:20].[ext]',
+            outputPath: 'public/assets',
+            context: 'src/assets',
+          },
+        },
+      },
+      {
+        test: /\.(?:eot|otf|svg|ttf|woff2?)$/, // Resolve all font & svg files.
         use: {
           loader: 'file-loader',
           options: {
-            name: '[path][name].[hash:base64:20].[ext]',
-            context: 'src/assets',
+            name: '[path][name].[contenthash:20].[ext]',
             outputPath: 'public/assets',
+            context: 'src/assets',
           },
         },
       },

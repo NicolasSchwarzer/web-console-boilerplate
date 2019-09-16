@@ -74,6 +74,7 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^3.0.1",
     "terser-webpack-plugin": "^1.4.1",
+    "url-loader": "^2.1.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0",
