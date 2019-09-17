@@ -51,6 +51,10 @@ module.exports = {
         },
       },
       {
+        // Please note that import same scss file in two different scss files,
+        // will produce style code duplication,
+        // because import handled by sass-loader is beyond webpack module mechanism,
+        // only the css we got after sass-loader processing is treated as a module.
         test: /\.scss$/, // Use scss to write styles.
         exclude: /node_modules/, // Extract app's css chunk.
         use: [
