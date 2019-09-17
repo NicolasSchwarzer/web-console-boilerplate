@@ -9,7 +9,13 @@ module.exports = merge(config, {
   mode: 'production', // Tree shaking enabled.
   optimization: {
     minimizer: [
-      new TerserWebpackPlugin(), // Should specify js minimizer when overrides.
+      new TerserWebpackPlugin({ // Should specify js minimizer when overrides.
+        terserOptions: {
+          output: {
+            ascii_only: true, // Escape Unicode characters in strings and regexps.
+          },
+        },
+      }),
       new OptimizeCssAssetsWebpackPlugin(), // Also minimize css chunk size.
     ],
   },
