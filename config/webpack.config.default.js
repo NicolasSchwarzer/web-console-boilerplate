@@ -15,9 +15,9 @@ module.exports = {
     ],
   },
   output: {
-    // Use [chunkhash] to persist chunk (js entry file) hash.
-    chunkFilename: 'public/[id].[chunkhash].js', // Non-entry chunk file name.
-    filename: 'public/[id].[chunkhash].js', // Entry chunk file name.
+    // Use [contenthash] to persist chunk (js entry file) hash.
+    chunkFilename: 'public/[id].[contenthash].js', // Non-entry chunk file name.
+    filename: 'public/[id].[contenthash].js', // Entry chunk file name.
     path: join(__dirname, '../build'),
     publicPath: '/', // Base url to access static assets.
   },
