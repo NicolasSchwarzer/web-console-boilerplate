@@ -11,9 +11,9 @@
     "lint:md": "eslint . --ext .md",
     "lint:style": "stylelint 'src/**/*.scss' --syntax scss",
     "lint-fix": "npm run lint-fix:es && npm run lint-fix:md && npm run lint-fix:style",
-    "lint-fix:es": "eslint . --ext .js,.jsx --fix",
-    "lint-fix:md": "eslint . --ext .md --fix",
-    "lint-fix:style": "stylelint 'src/**/*.scss' --syntax scss --fix"
+    "lint-fix:es": "npm run lint:es -- --fix",
+    "lint-fix:md": "npm run lint:md -- --fix",
+    "lint-fix:style": "npm run lint:style -- --fix"
   },
   "repository": {
     "type": "git",
