@@ -120,13 +120,26 @@ module.exports = {
   optimization: {
     namedChunks: true, // Persist chunk ids with the chunk name.
     runtimeChunk: 'single', // Extract webpack runtime & manifest.
+    // Override partial default splitChunks configuration:
+    // https://webpack.js.org/plugins/split-chunks-plugin/#optimizationsplitchunks
     splitChunks: {
+      minSize: 0, // Allow chunk to be generated no matter what chunk size.
       cacheGroups: {
-        // Extract vendors' libraries.
-        vendor: {
+        // Extract vendors' libraries into one chunk.
+        vendors: {
           test: /node_modules/,
           name: 'vendors',
           chunks: 'all',
+          priority: -10,
+        },
+        // Extract common code into one chunk, which will be loaded on demand,
+        // except for code also imported in app entry chunk,
+        // and except for code in node_modules due to priority too.
+        default: {
+          name: 'common',
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
         },
       },
     },
