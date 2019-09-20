@@ -42,4 +42,4 @@
 2. `npm run lint` 检查代码风格。
 3. `npm run lint-fix` 检查并修复代码风格。
 4. `npm run build` 构建 Web Console Boilerplate 的 production 版本到 build 目录。
-5. `npm run analyze` 可视化分析 Bundle 大小。
+5. `npm run analyze` 可视化分析 bundle 大小。
