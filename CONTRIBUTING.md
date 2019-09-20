@@ -8,7 +8,7 @@ The following is a set of guidelines for contributing to Web Console Boilerplate
 
 ## Code of Conduct
 
-I have adopted a [Code of Conduct](https://github.com/NicolasSchwarzer/web-console-boilerplate/blob/master/CODE_OF_CONDUCT.md) that I expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
+I have adopted a [Code of Conduct](./CODE_OF_CONDUCT.md) that I expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
 
 ## Bugs
 
