@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { Layout, Menu, Icon, Avatar } from 'antd';
 import classNames from 'classnames';
-import avatar from '@/assets/git.png';
+import avatar from '@/assets/github-black.png';
 import styles from './index.scss';
 
 const { Header, Sider, Content } = Layout;
@@ -65,7 +65,7 @@ function Panel({ history, location, children }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Avatar className={styles.avatar} size={48} src={avatar} />
+              <Avatar size={48} src={avatar} />
             </a>
           </div>
         </Header>
