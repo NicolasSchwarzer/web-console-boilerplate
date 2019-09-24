@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { Layout, Menu, Icon, Avatar } from 'antd';
@@ -9,9 +9,19 @@ import styles from './index.scss';
 const { Header, Sider, Content } = Layout;
 const pathReg = /^\/([\w-]+)(?:\/.*)?$/;
 
-function Panel({ history, location, children }) {
+function Panel({ history: { push }, location: { pathname }, children }) {
   const [collapsed, setCollapsed] = useState(false);
-  const selectedKey = location.pathname.replace(pathReg, '$1');
+  // Memorize menu selected keys via hook useMemo.
+  const selectedKeys = useMemo(() => [pathname.replace(pathReg, '$1')], [pathname]);
+  // Memorize menu onSelect callback via hook useCallback.
+  const onMenuSelect = useCallback(({ key }) => push(`/${key}`), [push]);
+  // Memorize collapsed toggle function via hook useCallback.
+  const toggleCollapsed = useCallback(
+    () => setCollapsed((prevCollapsed) => !prevCollapsed),
+    // The dependency setCollapsed will never mutate, and so is toggleCollapsed,
+    // thus there's no eslint error reported here.
+    [],
+  );
 
   return (
     <Layout className={styles.container}>
@@ -26,8 +36,8 @@ function Panel({ history, location, children }) {
           className={styles.menu}
           theme="dark"
           mode="inline"
-          selectedKeys={[selectedKey]}
-          onSelect={({ key }) => history.push(`/${key}`)}
+          selectedKeys={selectedKeys}
+          onSelect={onMenuSelect}
         >
           <Menu.Item key="dashboard">
             <Icon type="dashboard" />
@@ -48,7 +58,7 @@ function Panel({ history, location, children }) {
           <Icon
             className={styles.trigger}
             type={collapsed ? 'menu-unfold' : 'menu-fold'}
-            onClick={() => setCollapsed(!collapsed)}
+            onClick={toggleCollapsed}
           />
           <div className={styles.headerRightContainer}>
             <a
