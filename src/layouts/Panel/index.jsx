@@ -11,11 +11,12 @@ const pathReg = /^\/([\w-]+)(?:\/.*)?$/;
 
 function Panel({ history: { push }, location: { pathname }, children }) {
   const [collapsed, setCollapsed] = useState(false);
-  // Memorize menu selected keys via hook useMemo.
+  // Memoize menu selected keys via hook useMemo,
+  // what is memoization: https://en.wikipedia.org/wiki/Memoization
   const selectedKeys = useMemo(() => [pathname.replace(pathReg, '$1')], [pathname]);
-  // Memorize menu onSelect callback via hook useCallback.
+  // Memoize menu onSelect callback via hook useCallback.
   const onMenuSelect = useCallback(({ key }) => push(`/${key}`), [push]);
-  // Memorize collapsed toggle function via hook useCallback.
+  // Memoize collapsed toggle function via hook useCallback.
   const toggleCollapsed = useCallback(
     () => setCollapsed((prevCollapsed) => !prevCollapsed),
     // The dependency setCollapsed will never mutate, and so is toggleCollapsed,
