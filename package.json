@@ -19,6 +19,13 @@
     "type": "git",
     "url": "git+https://github.com/NicolasSchwarzer/web-console-boilerplate.git"
   },
+  "keywords": [
+    "boilerplate",
+    "react",
+    "webpack",
+    "eslint",
+    "stylelint"
+  ],
   "author": "Nicolas Wan <nbwansjtu@gmail.com> (https://github.com/NicolasSchwarzer)",
   "license": "MIT",
   "bugs": {
