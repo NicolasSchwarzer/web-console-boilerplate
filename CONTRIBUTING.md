@@ -20,7 +20,7 @@ If you intend to introduce new feature, I also recommend create a feature reques
 
 ## Your First Pull Request
 
-Working on your first Pull Request? You can learn how from this free video series:
+Working on your first pull request? You can learn how from this free video series:
 
 [How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
@@ -32,7 +32,7 @@ The author is monitoring for pull requests. I will review your pull request and 
 
 1. Fork the repository and create your branch from `master`.
 2. Run `npm install` in the repository root.
-3. Make sure your code lints via running `npm run lint`. Tip: lint runs automatically when you git commit.
+3. Make sure your code lints via running `npm run lint`. Tip: Lint runs automatically when you git commit.
 
 ## Development Workflow
 

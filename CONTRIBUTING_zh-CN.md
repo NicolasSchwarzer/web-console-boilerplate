@@ -32,7 +32,7 @@
 
 1. Fork 该仓库并基于 `master` 分支新建你自己的分支。
 2. 在项目根目录下运行了 `npm install`。
-3. 确保你的代码通过了 lint 检查 `npm run lint`。小贴士：lint 会在你 git commit 的时候自动运行。
+3. 确保你的代码通过了 Lint 检查 `npm run lint`。小贴士：Lint 会在你 git commit 的时候自动运行。
 
 ## 开发流程
 

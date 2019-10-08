@@ -8,27 +8,27 @@ A boilerplate of web console project which saves your time on project initializa
 
 ## Features
 
-- **Web project boilerplate**, aims for react developers, with react-router, ant-design engaged.
-- **Full usage of react new features**, includes strict mode, error boundary, lazy load, memoization, hooks, fragment and so on...
+- **Web project boilerplate**, aims for React developers, with React Router and Ant Design engaged.
+- **Full usage of React new features**, includes strict mode, error boundaries, lazy load, memoization, fragments, Hooks and so on...
 - **Webpack configuration with best practice**, supports tree shaking, code splitting, persistant cache, live reload, bundle analysis and so on...
-- **Code style check**, automatically runs eslint and stylelint on git commit, whose rules are based on `eslint-config-airbnb` and `stylelint-config-standard`.
+- **Code style check**, automatically runs ESLint and StyleLint on Git commit, whose rules are based on `eslint-config-airbnb` and `stylelint-config-standard`.
 
 ## Getting Started
 
 ```shell
-# Install dependencies
+# Install dependencies.
 $ npm install
 
-# Start dev server
+# Start dev server.
 $ npm start
 
-# Get production build
+# Get production build.
 $ npm run build
 
-# Check code style
+# Check code style.
 $ npm run lint
 
-# Fix code style
+# Fix code style.
 $ npm run lint-fix
 ```
 
@@ -38,7 +38,7 @@ This repository is a boilerplate, I recommend you make a copy of it to start you
 
 ## Contributing
 
-Welcome all contributions. Please read the [contributing guide](./CONTRIBUTING.md) first.
+Welcome all contributions. Please read the [Contributing Guide](./CONTRIBUTING.md) first.
 
 ## License
 
