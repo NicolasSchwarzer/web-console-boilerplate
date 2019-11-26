@@ -8,7 +8,7 @@
 
 # Node.js
 #
-node_modules
+node_modules/
 
 # Log
 #
@@ -17,4 +17,4 @@ yarn-error.log
 
 # Project
 #
-/build
+/build/
