@@ -12,7 +12,7 @@ Web 控制台项目模板，节省你的项目初始化时间。
 * **大量使用 React 新特性**，包括严格模式、错误边界、懒加载、memoization、fragments、Hooks 等等...
 * **Webpack 配置最佳实践**，支持 tree shaking、代码分割、持久化缓存、热重载、bundle 大小分析等等...
 * **代码风格检查**，在代码提交时会自动运行 ESLint 和 StyleLint，检查规则基于 `eslint-config-airbnb` 和 `stylelint-config-standard`。
-  * 注意：ESLint 仍然使用 5.x.x 版本，最新的 6.x.x 版本和 [VSCode ESLint 插件](https://github.com/microsoft/vscode-eslint) 存在兼容性问题，详情请参见插件 issue [#696](https://github.com/microsoft/vscode-eslint/issues/696) 和评论 [#507855728](https://github.com/microsoft/vscode-eslint/issues/696#issuecomment-507855728)。
+  * **注意**：ESLint 仍然使用 5.x.x 版本，最新的 6.x.x 版本和 [VSCode ESLint 插件](https://github.com/microsoft/vscode-eslint) 存在兼容性问题，详情请参见插件 issue [#696](https://github.com/microsoft/vscode-eslint/issues/696) 和评论 [#507855728](https://github.com/microsoft/vscode-eslint/issues/696#issuecomment-507855728)。
 
 ## 开始
 
