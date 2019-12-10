@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 import styles from './index.scss';
 
 export default class ErrorBoundary extends PureComponent {
+  // Modal container dom to render error details in development environment.
+  errorContainerEl = document.createElement('div');
+
   static propTypes = {
     children: PropTypes.node,
   };
@@ -23,9 +26,6 @@ export default class ErrorBoundary extends PureComponent {
     componentStack: '',
   };
 
-  // Modal container dom to render error details in development environment.
-  errorContainerEl = document.createElement('div');
-
   static getDerivedStateFromError() {
     // Change state to render fallback UI.
     return { hasError: true };
@@ -34,6 +34,11 @@ export default class ErrorBoundary extends PureComponent {
   componentDidMount() {
     // Attach to body on mounted.
     document.body.appendChild(this.errorContainerEl);
+  }
+
+  componentWillUnmount() {
+    // Detach from body on unmount.
+    document.body.removeChild(this.errorContainerEl);
   }
 
   componentDidCatch(error, info) {
@@ -46,11 +51,6 @@ export default class ErrorBoundary extends PureComponent {
     } else {
       // TODO: log error stack & component stack to error tracking services.
     }
-  }
-
-  componentWillUnmount() {
-    // Detach from body on unmount.
-    document.body.removeChild(this.errorContainerEl);
   }
 
   renderErrorDetails() {
