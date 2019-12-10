@@ -12,7 +12,7 @@ A boilerplate of web console project which saves your time on project initializa
 * **Full usage of React new features**, includes strict mode, error boundaries, lazy load, memoization, fragments, Hooks and so on...
 * **Webpack configuration with best practice**, supports tree shaking, code splitting, persistant cache, live reload, bundle analysis and so on...
 * **Code style check**, automatically runs ESLint and StyleLint on Git commit, whose rules are based on `eslint-config-airbnb` and `stylelint-config-standard`.
-  * **Please notice**: Here uses ESLint 5.x.x instead of latest 6.x.x, because of the incompatible between 6.x.x and [the VSCode extension](https://github.com/microsoft/vscode-eslint). For more details, please refer to issue [#696](https://github.com/microsoft/vscode-eslint/issues/696) and comment [#507855728](https://github.com/microsoft/vscode-eslint/issues/696#issuecomment-507855728).
+  * **Please notice**: Here uses ESLint 5.x.x instead of latest 6.x.x, because of the incompatibility between 6.x.x and [the VSCode extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). For more details, please refer to issue [#696](https://github.com/microsoft/vscode-eslint/issues/696) and comment [#507855728](https://github.com/microsoft/vscode-eslint/issues/696#issuecomment-507855728).
 
 ## Getting Started
 
