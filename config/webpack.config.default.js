@@ -1,4 +1,5 @@
 const { join } = require('path');
+const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -69,7 +70,16 @@ module.exports = {
               importLoaders: 2, // Transformed by 2 loaders (sass & postcss) before @import.
             },
           },
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                autoprefixer({
+                  overrideBrowserslist: ['last 2 versions'],
+                }),
+              ],
+            },
+          },
           'sass-loader',
         ],
       },
