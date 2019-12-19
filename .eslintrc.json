@@ -39,6 +39,9 @@
   },
   "settings": {
     "import/resolver": {
+      "node": {
+        "extensions": [".js", ".mjs", ".jsx", ".json"]
+      },
       "webpack": {
         "config": "config/webpack.config.default.js"
       }
