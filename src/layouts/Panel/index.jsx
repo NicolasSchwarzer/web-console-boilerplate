@@ -14,8 +14,8 @@ function Panel({ history: { push }, location: { pathname }, children }) {
   // Memoize menu selected keys via hook useMemo,
   // what is memoization: https://en.wikipedia.org/wiki/Memoization
   const selectedKeys = useMemo(() => [pathname.replace(pathReg, '$1')], [pathname]);
-  // Memoize menu onSelect callback via hook useCallback.
-  const onMenuSelect = useCallback(({ key }) => push(`/${key}`), [push]);
+  // Memoize menu onClick callback via hook useCallback.
+  const onMenuClick = useCallback(({ key }) => push(`/${key}`), [push]);
   // Memoize collapsed toggle function via hook useCallback.
   const toggleCollapsed = useCallback(
     () => setCollapsed((prevCollapsed) => !prevCollapsed),
@@ -38,7 +38,7 @@ function Panel({ history: { push }, location: { pathname }, children }) {
           theme="dark"
           mode="inline"
           selectedKeys={selectedKeys}
-          onSelect={onMenuSelect}
+          onClick={onMenuClick}
         >
           <Menu.Item key="dashboard">
             <Icon type="dashboard" />
